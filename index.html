@@ -13,18 +13,16 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
+            padding: 20px;
             background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         }
         
         .container {
             text-align: center;
-            padding: 30px;
-            border-radius: 15px;
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            max-width: 80%;
+            width: 90%;
+            max-width: 1200px;
         }
         
         h1 {
@@ -34,59 +32,169 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
         
-        .names {
+        .team-members {
             display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
+            justify-content: center;
             flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
         }
         
-        .name-card {
+        .member-card {
             background-color: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-            min-width: 120px;
+            border-radius: 15px;
+            width: 300px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        .name-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
         
-        .name {
+        .avatar-container {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .member-card:hover .avatar {
+            transform: scale(1.05);
+        }
+        
+        .default-avatar {
+            width: 100%;
+            height: 100%;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 3em;
+        }
+        
+        .member-info {
+            padding: 25px;
+            text-align: left;
+        }
+        
+        .member-name {
             font-size: 1.5em;
             color: #6c5ce7;
+            margin-bottom: 10px;
             font-weight: bold;
         }
         
-        .subtitle {
+        .member-position {
             color: #888;
-            margin-top: 20px;
-            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        
+        .member-bio {
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            color: #6c5ce7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .social-link:hover {
+            color: #4a3dc0;
+        }
+        
+        @media (max-width: 768px) {
+            .team-members {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .member-card {
+                width: 100%;
+                max-width: 350px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Welcome to fairyland.</h1>
-        <p class="subtitle">这里住着三位可爱的精灵</p>
+        <p>什么？什么？什么？！</p>
         
-        <div class="names">
-            <div class="name-card">
-                <div class="name">枝枝</div>
-                <p>美丽的小姐姐</p>
+        <div class="team-members">
+            
+            <!-- 成员枝枝 - 无头像 -->
+            <div class="member-card">
+                <div class="avatar-container">
+                    <div class="default-avatar">👍👍👍</div>
+                </div>
+                <div class="member-info">
+                    <div class="member-name">枝枝</div>
+                    <div class="member-position">漂亮小姐姐</div>
+                    <div class="member-bio">
+                        无
+                    </div>
+                    <div class="social-links">
+                        <a href="https://s.viviv.com/J6A9QkKJ" class="social-link">回森</a>
+                    </div>
+                </div>
             </div>
-            <div class="name-card">
-                <div class="name">麻野</div>
-                <p>美丽的小姐姐</p>
+            
+            
+            <!-- 成员麻野 - 无头像 -->
+            <div class="member-card">
+                <div class="avatar-container">
+                    <div class="default-avatar">虚伪至极...</div>
+                </div>
+                <div class="member-info">
+                    <div class="member-name">麻野</div>
+                    <div class="member-position">漂亮小姐姐</div>
+                    <div class="member-bio">
+                        无
+                    </div>
+                    <div class="social-links">
+                        <a href="https://s.viviv.com/G7JhdpMz" class="social-link">回森</a>
+                    </div>
+                </div>
             </div>
-            <div class="name-card">
-                <div class="name">路路</div>
-                <p>帅哥一位</p>
+            
+            
+            <!-- 成员路路 - 无头像 -->
+            <div class="member-card">
+                <div class="avatar-container">
+                    <div class="default-avatar">你的爱是个梦，却藏着深心的痛.</div>
+                </div>
+                <div class="member-info">
+                    <div class="member-name">路路</div>
+                    <div class="member-position">帅哥一位</div>
+                    <div class="member-bio">
+                        看我干嘛👀
+                    </div>
+                    <div class="social-links">
+                        <a href="https://s.viviv.com/JDK6YDYJ" class="social-link">回森</a>
+                    </div>
+                </div>
             </div>
+            
+            
         </div>
     </div>
 </body>
