@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>页面访问计数器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+        .counter {
+            font-size: 24px;
+            color: #333;
+            margin: 20px;
+        }
+        .count {
+            font-size: 48px;
+            font-weight: bold;
+            color: #0066cc;
+        }
+    </style>
+</head>
+<body>
+    <h1>欢迎访问本页面</h1>
+    <div class="counter">
+        您是第 <span id="visitCount" class="count">0</span> 位访客
+    </div>
+
+    <script>
+        // 检查是否已经访问过
+        if (!localStorage.getItem('hasVisited')) {
+            // 获取当前计数
+            let count = localStorage.getItem('pageViewCount') || 0;
+            
+            // 增加计数
+            count = parseInt(count) + 1;
+            
+            // 存储更新后的计数和访问标记
+            localStorage.setItem('pageViewCount', count);
+            localStorage.setItem('hasVisited', 'true');
+            
+            // 更新页面显示
+            document.getElementById('visitCount').textContent = count;
+        } else {
+            // 如果已经访问过，只显示计数
+            document.getElementById('visitCount').textContent = localStorage.getItem('pageViewCount');
+        }
+    </script>
+</body>
+</html>
