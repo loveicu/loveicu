@@ -1,49 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
-    <title>页面访问计数器</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态爱心</title>
     <style>
         body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #111;
+            cursor: pointer;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-family: Arial, sans-serif;
+            color: white;
+        }
+        
+        .instructions {
+            position: absolute;
+            bottom: 20px;
             text-align: center;
-            margin-top: 100px;
+            width: 100%;
+            opacity: 0.7;
+            font-size: 18px;
         }
-        .counter {
-            font-size: 24px;
-            color: #333;
-            margin: 20px;
+        
+        .heart {
+            position: absolute;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            animation: float 4s ease-in-out infinite;
         }
-        .count {
-            font-size: 48px;
-            font-weight: bold;
-            color: #0066cc;
+        
+        .heart::before, .heart::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: currentColor;
+            border-radius: 50%;
+        }
+        
+        .heart::before {
+            left: -50%;
+        }
+        
+        .heart::after {
+            top: -50%;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-50%, -150%) scale(1.2) rotate(10deg);
+                opacity: 0.7;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>欢迎访问本页面</h1>
-    <div class="counter">
-        您是第 <span id="visitCount" class="count">0</span> 位访客
-    </div>
-
+    <h1>点击屏幕生成爱心</h1>
+    <div class="instructions">点击任意位置创建爱心<br>爱心会随机漂浮并消失</div>
+    
     <script>
-        // 检查是否已经访问过
-        if (!localStorage.getItem('hasVisited')) {
-            // 获取当前计数
-            let count = localStorage.getItem('pageViewCount') || 0;
+        document.addEventListener('click', function(e) {
+            createHeart(e.clientX, e.clientY);
+        });
+        
+        function createHeart(x, y) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
             
-            // 增加计数
-            count = parseInt(count) + 1;
+            // 随机大小 (20px 到 60px)
+            const size = Math.random() * 40 + 20;
+            heart.style.width = `${size}px`;
+            heart.style.height = `${size}px`;
             
-            // 存储更新后的计数和访问标记
-            localStorage.setItem('pageViewCount', count);
-            localStorage.setItem('hasVisited', 'true');
+            // 随机颜色
+            const colors = [
+                '#ff0000', '#ff69b4', '#ff1493', '#ff00ff', 
+                '#ff6347', '#ff4500', '#ff8c00', '#ffd700',
+                '#ffa500', '#ff7f50', '#ff6b6b', '#ff9ff3'
+            ];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            heart.style.color = color;
             
-            // 更新页面显示
-            document.getElementById('visitCount').textContent = count;
-        } else {
-            // 如果已经访问过，只显示计数
-            document.getElementById('visitCount').textContent = localStorage.getItem('pageViewCount');
+            // 随机动画持续时间 (3s 到 6s)
+            const duration = Math.random() * 3 + 3;
+            heart.style.animationDuration = `${duration}s`;
+            
+            // 随机初始旋转 (-30deg 到 30deg)
+            const rotation = Math.random() * 60 - 30;
+            heart.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+            
+            // 设置位置
+            heart.style.left = `${x}px`;
+            heart.style.top = `${y}px`;
+            
+            document.body.appendChild(heart);
+            
+            // 动画结束后移除元素
+            setTimeout(() => {
+                heart.remove();
+            }, duration * 1000);
+        }
+        
+        // 自动生成一些初始爱心
+        for (let i = 0; i < 10; i++) {
+            setTimeout(() => {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                createHeart(x, y);
+            }, i * 300);
         }
     </script>
 </body>
