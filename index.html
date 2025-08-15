@@ -1,201 +1,192 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>你来这里干嘛？</title>
+    <title>生日倒计时</title>
     <style>
         body {
-            font-family: 'Microsoft YaHei', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffebee;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 20px;
-            background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            flex-direction: column;
         }
-        
+
         .container {
-            text-align: center;
-            width: 90%;
-            max-width: 1200px;
-        }
-        
-        h1 {
-            color: #6c5ce7;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .team-members {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .member-card {
-            background-color: #fff;
+            background-color: white;
+            padding: 30px;
             border-radius: 15px;
-            width: 300px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
         }
-        
-        .member-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-        
-        .avatar-container {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .avatar {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .member-card:hover .avatar {
-            transform: scale(1.05);
-        }
-        
-        .default-avatar {
-            width: 100%;
-            height: 100%;
-            background-color: #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            font-size: 3em;
-        }
-        
-        .member-info {
-            padding: 25px;
-            text-align: left;
-        }
-        
-        .member-name {
-            font-size: 1.5em;
-            color: #6c5ce7;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        
-        .member-position {
-            color: #888;
-            margin-bottom: 15px;
-            font-size: 0.9em;
-        }
-        
-        .member-bio {
-            line-height: 1.6;
-            color: #555;
+
+        h1 {
+            color: #e91e63;
             margin-bottom: 20px;
         }
-        
-        .social-links {
+
+        .birthday-info {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .countdown {
             display: flex;
-            gap: 15px;
+            justify-content: space-around;
+            margin: 30px 0;
         }
-        
-        .social-link {
-            color: #6c5ce7;
-            text-decoration: none;
-            transition: color 0.3s ease;
+
+        .countdown-item {
+            text-align: center;
         }
-        
-        .social-link:hover {
-            color: #4a3dc0;
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e91e63;
+            margin-bottom: 5px;
         }
-        
-        @media (max-width: 768px) {
-            .team-members {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .member-card {
-                width: 100%;
-                max-width: 350px;
-            }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .message {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        .current-time {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #777;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Welcome to fairyland.</h1>
-        <p>什么？什么？什么？！</p>
-        
-        <div class="team-members">
-            
-            <!-- 成员枝枝 - 无头像 -->
-            <div class="member-card">
-                <div class="avatar-container">
-                    <div class="default-avatar">👍👍👍</div>
-                </div>
-                <div class="member-info">
-                    <div class="member-name">枝枝</div>
-                    <div class="member-position">漂亮小姐姐</div>
-                    <div class="member-bio">
-                        无
-                    </div>
-                    <div class="social-links">
-                        <a href="https://s.viviv.com/J6A9QkKJ" class="social-link">回森</a>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <!-- 成员麻野 - 无头像 -->
-            <div class="member-card">
-                <div class="avatar-container">
-                    <div class="default-avatar">虚伪至极...</div>
-                </div>
-                <div class="member-info">
-                    <div class="member-name">麻野</div>
-                    <div class="member-position">漂亮小姐姐</div>
-                    <div class="member-bio">
-                        无
-                    </div>
-                    <div class="social-links">
-                        <a href="https://s.viviv.com/G7JhdpMz" class="social-link">回森</a>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <!-- 成员路路 - 无头像 -->
-            <div class="member-card">
-                <div class="avatar-container">
-                    <div class="default-avatar">你的爱是个梦，却藏着深心的痛.</div>
-                </div>
-                <div class="member-info">
-                    <div class="member-name">路路</div>
-                    <div class="member-position">帅哥一位</div>
-                    <div class="member-bio">
-                        看我干嘛👀
-                    </div>
-                    <div class="social-links">
-                        <a href="https://s.viviv.com/JDK6YDYJ" class="social-link">回森</a>
-                    </div>
-                </div>
-            </div>
-            
-            
+        <h1>生日倒计时</h1>
+
+        <div class="birthday-info">
+            生日日期: <span id="birthday-date">2025年9月4日</span>
         </div>
+
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">--</div>
+                <div class="countdown-label">天</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">--</div>
+                <div class="countdown-label">小时</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">--</div>
+                <div class="countdown-label">分钟</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">--</div>
+                <div class="countdown-label">秒</div>
+            </div>
+        </div>
+
+        <div class="message" id="message"></div>
+        <div class="current-time" id="current-time"></div>
     </div>
+
+    <script>
+        // 预设的生日日期 (年, 月-1, 日)
+        // 注意: JavaScript中月份是从0开始的(0=1月, 11=12月)
+        const presetBirthday = new Date(2025, 8, 4); // 2025年1月1日
+
+        // 显示预设的生日日期
+        document.getElementById('birthday-date').textContent = formatDate(presetBirthday);
+
+        // 启动倒计时
+        startCountdown();
+
+        // 开始倒计时
+        function startCountdown() {
+            updateCountdown(); // 立即更新一次
+            setInterval(updateCountdown, 1000); // 每秒更新一次
+            updateCurrentTime(); // 更新当前时间
+            setInterval(updateCurrentTime, 1000); // 每秒更新当前时间
+        }
+
+        // 更新倒计时显示
+        function updateCountdown() {
+            const now = new Date();
+
+            // 设置生日年份为今年或明年
+            let nextBirthday = new Date(presetBirthday);
+            nextBirthday.setFullYear(now.getFullYear());
+
+            // 如果今年生日已经过了，设置为明年
+            if (nextBirthday < now) {
+                nextBirthday.setFullYear(now.getFullYear() + 1);
+            }
+
+            const diff = nextBirthday - now;
+
+            // 计算天、小时、分钟、秒
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            // 更新显示
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+
+            // 检查是否是生日当天
+            if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
+                document.getElementById('message').textContent = "🎉 生日快乐！🎉";
+            } else if (days === 0) {
+                document.getElementById('message').textContent = "今天是你的生日！";
+            } else {
+                document.getElementById('message').textContent = `距离枝枝生日还有 ${days} 天`;
+            }
+        }
+
+        // 更新当前时间显示
+        function updateCurrentTime() {
+            const now = new Date();
+            document.getElementById('current-time').textContent = `当前时间: ${formatDateTime(now)}`;
+        }
+
+        // 格式化日期为 YYYY年MM月DD日
+        function formatDate(date) {
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            return `${year}年${month}月${day}日`;
+        }
+
+        // 格式化日期时间为 YYYY-MM-DD HH:MM:SS
+        function formatDateTime(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            const seconds = String(date.getSeconds()).padStart(2, '0');
+            return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+        }
+    </script>
 </body>
+
 </html>
